@@ -7,7 +7,7 @@ SELECT
 	((MSRP-priceEach)/MSRP*100) AS percent
 	 /*Here I've created "calculated columns" for discount and percent
 	  *to show the business which products they should be focusing
-	  their sale on.*/
+	  their sales on.*/
 FROM 
 	products p 
 INNER JOIN orderdetails o
@@ -15,9 +15,9 @@ INNER JOIN orderdetails o
 		AND p.MSRP > o.priceEach
 WHERE p.productCode = 'S10_1678'
 /*Here we've created an inner join on the products and orderdetails tables and are searching for 
- *a specific productcode. We're also looking at items where MSRP is greater than price paid then
+ *a specific productcode. We're also looking at items where MSRP is greater than price paid. Then
  *I also searched if any instances existed where priceEach was greater than MRSP and
- *fortunely, none existed as this would mean the company would not make any
+ *fortunately, none existed as this would mean the company would not make any
  *profit on the sale of those itmes*/
 GROUP BY 
 	orderNumber
